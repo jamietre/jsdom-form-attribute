@@ -1,0 +1,23 @@
+{
+  "name": "jsdom-form-attribute",
+  "version": "1.0.0",
+  "description": "repro bug",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha form-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamietre/jsdom-form-attribute.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamietre/jsdom-form-attribute/issues"
+  },
+  "homepage": "https://github.com/jamietre/jsdom-form-attribute#readme",
+  "dependencies": {
+    "jsdom": "^12.0.0",
+    "mocha": "^5.2.0"
+  }
+}

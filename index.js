@@ -3,20 +3,21 @@ const fs = require('fs');
 
 const { JSDOM } = jsdom;
 const virtualConsole = new jsdom.VirtualConsole();
-virtualConsole.sendTo(console, { omitJSDOMErrors: true });
 
 const html = fs.readFileSync(__dirname+'/test.html', 'utf-8');
-const dom = new JSDOM(html, { virtualConsole });
+const dom = new JSDOM(html);
 
 const document = dom.window.document;
 const p1 = new Promise(resolve => {
-  document.getElementById('bar').addEventListener('submit', () => {
+  document.getElementById('bar').addEventListener('submit', (e) => {
+    e.preventDefault();
     resolve();
   });
 }).then(() => console.log('regular form submit event received'))
 
 const p2 =  new Promise(resolve => {
-  document.getElementById('foo').addEventListener('submit', () => {
+  document.getElementById('foo').addEventListener('submit', (e) => {
+    e.preventDefault();
     resolve();
   });
 }).then(() => console.log('form attribute submit event received'))
